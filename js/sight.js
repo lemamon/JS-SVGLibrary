@@ -30,12 +30,15 @@ class Sight {
     this.svg = new SVGElement("svg");
     this.svg.attr({ viewbox: `0 0 ${width} ${height}` });
     this.svg.append(selector);
+
+    return this;
   }
 
   draw(type, attrs) {
     const svg = new SVGElement(type);
     svg.attr(attrs);
-    svg.append("svg");
+    svg.append(this.svg);
+
     return svg;
   }
 }
