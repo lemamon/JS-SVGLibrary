@@ -32,3 +32,10 @@ class Sight {
     this.svg.append(selector);
   }
 
+  draw(type, attrs) {
+    const svg = new SVGElement(type);
+    svg.attr(attrs);
+    svg.append("svg");
+    return svg;
+  }
+}
