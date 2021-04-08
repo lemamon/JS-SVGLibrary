@@ -23,3 +23,12 @@ class SVGElement {
     parent.appendChild(this.node);
     return this;
   }
+}
+
+class Sight {
+  constructor(selector, width, height) {
+    this.svg = new SVGElement("svg");
+    this.svg.attr({ viewbox: `0 0 ${width} ${height}` });
+    this.svg.append(selector);
+  }
+
