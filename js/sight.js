@@ -27,18 +27,14 @@ class SVGElement {
 
 class Sight {
   constructor(selector, width, height) {
-    this.svg = new SVGElement("svg");
-    this.svg.attr({ viewbox: `0 0 ${width} ${height}` });
-    this.svg.append(selector);
+    this.svg = new SVGElement("svg")
+      .attr({ viewbox: `0 0 ${width} ${height}` })
+      .append(selector);
 
     return this;
   }
 
   draw(type, attrs) {
-    const svg = new SVGElement(type);
-    svg.attr(attrs);
-    svg.append(this.svg);
-
-    return svg;
+    return new SVGElement(type).attr(attrs).append(this.svg);
   }
 }
